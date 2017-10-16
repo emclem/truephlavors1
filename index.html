@@ -13,6 +13,9 @@
 	<script type="text/javascript" src="js/respond.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery.vide.min.js"></script>
+	<script type="text/javascript" src="js/jquery.cslide.js"></script>
+	<script type="text/javascript" src="js/custom.js"></script>
 
 
 </head>
@@ -20,7 +23,7 @@
 
 
 <!-- begin BANNER VIDEO -->
-<script src="js/jquery.vide.min.js"></script>
+<div class="header-video-background"></div>
 <div data-vide-bg="video/headervideo" class="header-video">
 <div class="header-video-overlay">&nbsp;</div>
 <div class="header-video-content">
@@ -37,19 +40,23 @@
 
 	<!-- begin HEADER -->
 	<header class="header">
+		<!-- begin scrolled top -->
 		<div class="header-extra">
 			<a href="#">
 			<img src="images/mouse.png"> <b>ORDER ONLINE!</b>
 			&nbsp;or Call: (02) 410 442
 			</a>
 		</div>
+		<!-- end scrolled top -->
+		<!-- begin top -->
 		<div class="header-top">
 			<div class="container">
 			<div class="row">
-				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 logo">
-					<a href="#"><img src="images/logo.png"></a>
+				<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 logo">
+					<div class="align-left visible-md visible-lg"><a href="#"><img src="images/logo.png"></a></div>
+					<div class="align-center visible-xs visible-sm"><a href="#"><img src="images/logo.png"></a></div>
 				</div>
-				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 details text-bold">
+				<div class="visible-md visible-lg col-md-8 col-lg-8 details text-bold">
 					<span class="fa fa-phone"></span> Call: (02) 410 442
 					&nbsp;
 					<a href="#" class="btn btn-danger btn-lg"><img src="images/mouse.png"> ORDER ONLINE!</a>
@@ -57,10 +64,23 @@
 			</div>
 			</div>
 		</div>
+		<!-- end top -->
+		<!-- begin navigation -->
 		<div class="header-bottom">
 			<div class="container">
 			<div class="row navigation">
-				<ul>
+				<!-- begin mobile nav show button (responsive) -->
+				<div class="visible-xs visible-sm hidden-md hidden-lg">
+					<button type="button" class="navigation-show-mobile show" id="nav-show">
+						<span class="fa fa-align-justify"></span> NAVIGATION
+					</button>
+					<button type="button" class="navigation-show-mobile hide" id="nav-hide">
+						<span class="fa fa-align-justify"></span> CLOSE NAV
+					</button>
+				</div>
+				<!-- end mobile nav show button (responsive) -->
+				<!-- begin normal nav (responsive) -->
+				<ul class="visible-md visible-lg hidden-xs hidden-sm">
 					<li class="active"><a href="#"><span class="fa fa-home"></span> Home</a></li><li>
 					<a href="#">Menu</a></li><li>
 					<a href="#">Catering Services</a></li><li>
@@ -69,9 +89,24 @@
 					<a href="#">Restaurant Location</a></li><li>
 					<a href="#">Contact Info</a></li>
 				</ul>
+				<!-- end normal nav (responsive) -->
 			</div>
 			</div>
 		</div>
+		<!-- end navigation -->
+		<!-- begin navigation mobile -->
+		<div id="header-navmobile" class="header-navmobile visible-xs visible-sm hidden-md hidden-lg">
+			<ul>
+				<li class="active"><a href="#">Home</a></li>
+				<li><a href="#">Menu</a></li>
+				<li><a href="#">Catering Services</a></li>
+				<li><a href="#">About Us</a></li>
+				<li><a href="#">Gallery</a></li>
+				<li><a href="#">Restaurant Location</a></li>
+				<li><a href="#">Contact Info</a></li>
+			</ul>
+		</div>
+		<!-- end navigation-mobile -->
 	</header>
 	<!-- end HEADER -->
 
@@ -191,11 +226,14 @@
 <!-- end FOLLOW -->
 
 
+
 <!-- begin CONTENT 2 -->
 <section>
 	<div class="container">
 	<div class="row align-left">
-		<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12"><img src="images/image1.jpg" class="img-responsive"></div>
+		<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+			<a href="#"><img src="images/image1.jpg" class="img-responsive background-brown"></a>
+		</div>
 		<div class="col-lg-9 col-md-8 col-sm-6 col-xs-12">
 		<h2 class="text-special">Quality Food</h2>
 		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
@@ -209,7 +247,9 @@
 		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 		<p><a href="#" class="btn btn-danger">read more</a></p>
 		</div>
-		<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12"><img src="images/image2.jpg" class="img-responsive"></div>
+		<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+			<a href="#"><img src="images/image2.jpg" class="img-responsive background-brown"></a>
+		</div>
 	</div>
 	</div>
 </section>
@@ -219,6 +259,7 @@
 <!-- begin CONTENT 3-->
 <section class="background-white">
 	<div class="container menu">
+	<br>
 	<div class="row">
 		<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 menu-thumb clearspace">
 			<span class="bestseller"><img src="images/bestseller.png"></span>
@@ -229,7 +270,7 @@
 				</a>
 				<div><a href="#">Order online now!</a></div>
 			</div>
-			<div><a href="#"><img src="images/food/spicy-kalderetang-kambing.jpg" class="img-responsive"></a></div>
+			<div><a href="#"><img src="images/food/spicy-kalderetang-kambing.jpg" class="img-responsive background-lbrown"></a></div>
 		</div>
 		<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 menu-thumb clearspace">
 			<span class="bestseller"><img src="images/bestseller.png"></span>
@@ -240,7 +281,7 @@
 				</a>
 				<div><a href="#">Order online now!</a></div>
 			</div>
-			<div><a href="#"><img src="images/food/phlavors-top-tapa.jpg" class="img-responsive"></a></div>
+			<div><a href="#"><img src="images/food/phlavors-top-tapa.jpg" class="img-responsive background-lbrown"></a></div>
 		</div>
 		<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 menu-thumb clearspace">
 			<span class="bestseller"><img src="images/bestseller.png"></span>
@@ -251,7 +292,7 @@
 				</a>
 				<div><a href="#">Order online now!</a></div>
 			</div>
-			<div><a href="#"><img src="images/food/naimas-nga-pinakbet.jpg" class="img-responsive"></a></div>
+			<div><a href="#"><img src="images/food/naimas-nga-pinakbet.jpg" class="img-responsive background-lbrown"></a></div>
 		</div>
 		<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 menu-thumb clearspace">
 			<span class="bestseller"><img src="images/bestseller.png"></span>
@@ -262,9 +303,10 @@
 				</a>
 				<div><a href="#">Order online now!</a></div>
 			</div>
-			<div><a href="#"><img src="images/food/pato-ala-sisig.jpg" class="img-responsive"></a></div>
+			<div><a href="#"><img src="images/food/pato-ala-sisig.jpg" class="img-responsive background-lbrown"></a></div>
 		</div>
 	</div>
+	<br>
 	</div>
 </section>
 <!-- end CONTENT 3 -->
@@ -273,6 +315,9 @@
 
 <!-- begin FOOTER -->
 <section class="footer">
+	<div class="footer-totop">
+		<button type="button" id="totop"><span class="fa fa-chevron-up"></span></button>
+	</div>
 	<div class="container">
 	<div class="row">
 		<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
@@ -368,13 +413,6 @@
 	<div class="align-center">True Phlavors &copy; 2017 | <a href="#" class="text-white">Privacy</a> | <a href="#" class="text-white">Terms</a></div>
 </section>
 <!-- end FOOTER -->
-
-
-
-<!-- begin [JAVASCRIPT] -->
-<script type="text/javascript" src="js/jquery.cslide.js"></script>
-<script type="text/javascript" src="js/custom.js"></script>
-<!-- end [JAVASCRIPT] -->
 
 </body>
 </html>

@@ -1,0 +1,387 @@
+@import "include";
+
+
+body {
+	@extend %clearspace-extend;
+	@include transition();
+	background: $color-lbrown url("../images/background-lightwood.jpg") no-repeat center center fixed;
+	font-size: 16px;
+	line-height: 1.5em;
+	width: 100%;
+	color: $color-brown-dark;
+	overflow-x: hidden;
+}
+ul,li {
+	@extend %clearspace-extend;
+	list-style: none;
+}
+h1,h2,h3,h4,h5,h6 {
+	@extend %clearspace-extend;
+	font-weight: normal;
+	line-height: 1.4em;
+}
+h1 { font-size: 4em; }
+h2 { font-size: 3em; }
+h3 { font-size: 2em; }
+h4 { font-size: 1.75em; }
+h5 { font-size: 1.5em; }
+h6 { font-size: 1.25em; }
+a {
+	@include transition();
+	color: $color-red;
+	&:hover {
+		color: $color-orange;
+		text-decoration: none;
+	}
+}
+img { border: none; }
+small { color: $color-brown-dark !important; }
+
+
+
+
+.clearspace { @include clearspace(); }
+.tab-xs { padding-left: 5px; }
+.tab-sm { padding-left: 10px; }
+.tab-md { padding-left: 20px; }
+.tab-lg { padding-left: 40px; }
+.image-fit { img { width: 100%; } }
+.text-lg { font-size: 1.25em !important; line-height: 1.75em !important; }
+.text-md { font-size: 1em !important; line-height: 1.5em !important; }
+.text-sm { font-size: 0.75em !important; line-height: 1.25em !important; }
+.text-xs { font-size: 0.5em !important; line-height: 1em !important; }
+.background-white { background: $color-white !important; }
+.round { @include round(); }
+.align-right { text-align: right; }
+.align-left { text-align: left; }
+.align-center { text-align: center; }
+.text-white { color: $color-white !important; }
+
+
+
+.liststyle-bullet {
+	margin-left: 30px;
+	li {
+	list-style-type: disc; 
+	list-style-position: inside;
+	}
+}
+
+
+
+// HEADER
+$height-header-video: 390px;
+$height-header: 155px;
+$height-header-top: 107px;
+$height-header-bottom: 48px;
+$height-header-scrolled-all: 80px;
+$height-header-scrolled-top: 40px;
+$height-header-scrolled-bottom: 40px;
+.header-video {
+	@include transition(200ms);
+	position: relative;
+	height: $height-header-video;
+	margin-top: $height-header;
+	.header-video-overlay {
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		width: 100%;
+		height: 100%;
+		background: url("../images/videooverlay.png") no-repeat center center;
+		z-index: 5;
+	}
+	.header-video-content {
+		@include transition(500ms);
+		position: absolute;
+		left: 0px;
+		top: 40px;
+		width: 100%;
+		color: $color-white;
+		z-index: 10;
+		.header-video-content-container {
+			@include textshadow(20px, 0.5);
+			width: 500px;
+			overflow: hidden;
+			margin-left: 50px;
+		}
+		.btn {
+			@include textshadow(0px, 0);
+			@include shadow();
+		}
+	}
+}
+.header-video-scrolled {
+	height: $height-header-video + $height-header;
+	margin-top: 0;
+	.header-video-content {
+		top: 40px + $height-header;
+	}
+}
+.header {
+	@include shadow();
+	@include transition();
+	height: $height-header;
+	width: 100%;
+	background: $color-lbrown url("../images/background-lightwood.jpg") no-repeat center top;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	z-index: 999999999;
+	overflow: hidden;
+	.header-top {
+		@include transition();
+		position: absolute;
+		width: 100%;
+		top: 0px;
+		left: 0px;
+		font-size: 1.1em;
+		height: $height-header-top;
+		line-height: $height-header-top;
+		overflow: hidden;
+		.logo {
+			text-align: left;
+			img {
+				@include transition();
+				max-width: 270px;
+			}
+		}
+		.details {
+			text-align: right;
+		}
+		.btn { margin-bottom: 4px; }
+	}
+	.header-bottom {
+		@include transition();
+		position: absolute;
+		width: 100%;
+		top: $height-header-top;
+		left: 0px;
+		height: $height-header-bottom;
+		line-height: $height-header-bottom;
+		background: $color-brown;
+		overflow: hidden;
+		color: $color-white;
+		.navigation {
+			text-align: center;
+			ul {
+				li {
+					display: inline-block;
+					a {
+						color: $color-white;
+						display: block;
+						padding: 0px 35px;
+						&:hover { background: rgba($color-brown-darker,1); }
+					}
+					&.active {
+						a {
+							background: rgba($color-orange,1);
+							&:hover { background: rgba($color-orange,1); }
+						}
+					}
+				}
+			}
+		}
+	}
+	.header-extra {
+		@include transition();
+		position: absolute;
+		top: ($height-header-scrolled-top + 20) * -1;
+		left: 0px;
+		width: 100%;
+		height: $height-header-scrolled-top;
+		line-height: $height-header-scrolled-top;
+		font-size: 1.1em;
+		text-align: center;
+		overflow: hidden;
+		a {
+			color: $color-white;
+			background: $color-red;
+			display: block;
+			&:hover { background: $color-orange; }
+		}
+	}
+}
+.header-scrolled {
+	height: $height-header-scrolled-all;
+	.header-top {
+		top: ($height-header-top + 20) * -1;
+	}
+	.header-bottom {
+		top: $height-header-scrolled-top;
+		height: $height-header-scrolled-bottom;
+		line-height: $height-header-scrolled-bottom;
+		background: $color-brown-darker;
+		.navigation { ul { li { a { &:hover { background: rgba($color-brown-darkest,1); } } } } }
+	}
+	.header-extra { top: 0; }
+}
+
+
+
+$space-px: 60px 0px;
+section { padding: $space-px; }
+// CIRCLELIST
+.circlelist {
+	padding: 60px 0px 40px 0px;
+	a { color: $color-lbrown-light; }
+	.circle {
+		@include transition();
+		@include round(50%);
+		width: 100%;
+		height: 100%;
+		display: block;
+		background: $color-brown;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		.circle-content {
+			position: absolute;
+			left: 0px;
+			bottom: 27%;
+			width: 100%;
+			text-align: center;
+			z-index: 10;
+		}
+		img {
+			@include transition();
+			width: 100%;
+		}
+		&:hover {
+			background: $color-orange;
+			img { padding: 10px; }
+		}
+	}
+}
+
+
+
+
+// FOLLOW
+.follow {
+	background: url("../images/background-follow.jpg") no-repeat center center;
+	.follow-container {
+		@include transition();
+		padding: $space-px;
+		text-align: center;
+		color: $color-white;
+		background: rgba($color-brown, 0.7);
+		&:hover { background: rgba($color-brown, 0.85); }
+	}
+	a { color: $color-white; }
+}
+
+
+
+
+
+// MENU
+.menu {
+	padding: 0px 50px;
+	.menu-thumb {
+		overflow: hidden;
+		position: relative;
+		.bestseller {
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			z-index: 10;
+		}
+		.content {
+			@include transition();
+			position: absolute;
+			bottom: -200px;
+			left: 0px;
+			width: 100%;
+			padding: 10px 12px;
+			z-index: 5;
+			background: rgba($color-white, 0.75);
+			a {
+				color: $color-brown-dark;
+				&:hover { color: $color-red; }
+			}
+		}
+		&:hover { .content { bottom: 0px; } }
+	}
+}
+
+
+
+
+// FOOTER
+.footer {
+	background: url("../images/background-darkwood.jpg") repeat center center;
+	background-color: $color-dbrown;
+	color: $color-lbrown-light;
+	font-size: 0.9em;
+	line-height: 1.25em;
+	a {
+		color: $color-orange;
+		&:hover { color: $color-orange + 50; }
+	}
+	.inner-container {
+		padding: 5px;
+	}
+	.footer-menuthumb {
+		@include clearspace();
+		li {
+			width: 30%;
+			display: inline-block;
+			margin-bottom: 3px;
+			img { width: 100%; }
+		}
+	}
+	.footer-nav {
+		@include clearspace();
+		li {
+			padding-bottom: 5px;
+			a { display: block; }
+		}
+	}
+}
+.footer-bottom {
+	padding: 8px;
+	font-size: 0.75em;
+	color: $color-white;
+	background: #111;
+}
+
+
+
+// BOOTSTRAP OVERRIDE
+.btn {
+	@include transition();
+	border: none;
+}
+.btn-default {
+
+}
+.btn-success {
+
+}
+.btn-warning {
+
+}
+.btn-danger {
+	background: $color-red;
+	&:hover { background: $color-orange }
+}
+
+
+
+// MEDIA QUERY
+// LG
+@media (min-width: 1200px) {
+
+}
+// MD
+@media (min-width: 992px) and (max-width: 1199px) {
+
+}
+// SM
+@media (min-width: 768px) and (max-width: 991px) {
+
+}
+// XS
+@media (max-width: 767px) {
+
+}

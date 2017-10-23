@@ -2,8 +2,6 @@ $(document).ready(function() {
 
 	// SCROLLED
 	$(window).scroll(function() {
-		$('.header-video').toggleClass('header-video-scrolled', $(this).scrollTop() > 0);
-		$('.header-video-background').toggleClass('header-video-background-scrolled', $(this).scrollTop() > 0);
 		$('.header').toggleClass('header-scrolled', $(this).scrollTop() > 0);
 	});
 
